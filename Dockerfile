@@ -1,11 +1,11 @@
 FROM registry.access.redhat.com/ubi8/ubi:latest
 
 # Install dependencies
-RUN dnf update -y && dnf install -y \
+RUN yum update -y && yum install -y \
     retroarch \
     libretro-nestopia \
     wget && \
-    dnf clean all
+    yum clean all
 
 # Set RetroArch as the default entrypoint
 ENTRYPOINT ["retroarch"]
