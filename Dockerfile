@@ -1,11 +1,11 @@
-FROM ubuntu:latest
+FROM registry.access.redhat.com/ubi8/ubi:latest
 
 # Install dependencies
-RUN apt update && apt install -y \
+RUN dnf update -y && dnf install -y \
     retroarch \
     libretro-nestopia \
     wget && \
-    rm -rf /var/lib/apt/lists/*
+    dnf clean all
 
 # Set RetroArch as the default entrypoint
 ENTRYPOINT ["retroarch"]
